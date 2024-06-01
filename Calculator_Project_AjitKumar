@@ -1,0 +1,69 @@
+from tkinter import*
+
+calculator=""
+
+def press(num):
+    global calculator
+    calculator=calculator+str(num)
+    entry_text.set(calculator)
+
+def equalpress():
+    global calculator
+    equation=str(eval(calculator))
+    entry_text.set(equation)
+
+def clear():
+    global calculator
+    calculator=""
+    entry_text.set(calculator)
+
+
+cal=Tk()
+
+entry_text=StringVar()
+
+e1=Entry(cal,textvariable=entry_text,font="lucida 20 bold").grid(columnspan=4)
+
+
+cal.title('Simple Calculator')
+cal.geometry("200x250")
+cal.configure(bg='lightgreen')
+
+b1=Button(cal,text='1',command=lambda: press(1),bg="aqua",height=2,width=6).grid(row=1,columnspan=1)
+
+
+b2=Button(cal,text='2',command=lambda: press(2),bg="aqua",height=2,width=6).grid(row=1,columnspan=2)
+
+
+b3=Button(cal,text='3',command=lambda: press(3),bg="aqua",height=2,width=6).grid(row=1,columnspan=3)
+
+
+b4=Button(cal,text="4",command=lambda: press(4),bg="aqua",height=2,width=6).grid(row=2,columnspan=1)
+
+b5=Button(cal,text="5",command=lambda: press(5),bg="aqua",height=2,width=6).grid(row=2,columnspan=2)
+
+b6=Button(cal,text="6",command=lambda: press(6),bg="aqua",height=2,width=6).grid(row=2,columnspan=3)
+
+b7=Button(cal,text="7",command=lambda: press(7),bg="aqua",height=2,width=6).grid(row=3,columnspan=1)
+
+b8=Button(cal,text="8",command=lambda: press(8),bg="aqua",height=2,width=6).grid(row=3,columnspan=2)
+
+b9=Button(cal,text="9",command=lambda: press(9),bg="aqua",height=2,width=6).grid(row=3,columnspan=3)
+
+b0=Button(cal,text="0",command=lambda: press(0),bg="aqua",height=2,width=6).grid(row=4,columnspan=1)
+
+plus=Button(cal,text="+",command=lambda: press('+'),bg="aqua",height=2,width=6).grid(row=1,columnspan=4)
+
+minus=Button(cal,text="-",command=lambda: press('-'),bg="aqua",height=2,width=6).grid(row=2,columnspan=4)
+
+divide=Button(cal,text="/",command=lambda: press('/'),bg="aqua",height=2,width=6).grid(row=3,columnspan=4)
+
+multiply=Button(cal,text="*",command=lambda: press('*'),bg="aqua",height=2,width=6).grid(row=4,columnspan=4)
+
+decimal=Button(cal,text=".",command=lambda: press('.'),bg="aqua",height=2,width=6).grid(row=4,columnspan=2)
+
+equal=Button(cal,text="=",command=equalpress,bg="aqua",height=2,width=6).grid(row=4,columnspan=3)
+
+clear1=Button(cal,text="Clear",command=clear,bg="aqua",height=2,width=6).grid(row=5,columnspan=1)
+
+cal.mainloop()
